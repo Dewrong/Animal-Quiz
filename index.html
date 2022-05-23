@@ -12,25 +12,27 @@
     <div class="container">
         <div id="game-title">Animal Quiz</div>
         <div id="game-description">This game will give you an obscure animal fact, let's see if you can guess the animal!</div>
-        <div id="question-container" class="hide">
+        <div id="question-container" class="hide-question">
             <div id="question">Question</div>
-            <div id="answer-boxes" class="answer-grid">
+            <div id="answer-box" class="answer-grid">
                 <p><input type="text" value=""> 
                     <button id="submit-button" class="submit-btn btn">Submit</button>
                 </p>
-                <p><input type="text" value="">
-                    <button id="submit-button" class="submit-btn btn">Submit</button>
-                </p>
-                <p><input type="text" value="">
-                    <button id="submit-button" class="submit-btn btn">Submit</button>
-                </p>
-                <p><input type="text" value="">
-                    <button id="submit-button" class="submit-btn btn">Submit</button>
-                </p>
+            </div>
+            <div id="hint-container">
+                <button id = "hint-1 button" class="hint-btn btn" onclick="displayHint1()">Animal Kingdom</button>
+                <p id = hint-1 class="hide-hint-1">hint 1</p>
+                <p></p>
+                <button id = "hint-2 button" class="hint-2-btn btn" onclick="displayHint2()">Size</button>
+                <p id = hint-2 class="hide-hint-2">hint 2</p>
+                <p></p>
+                <button id = "hint-3 button" class="hint-3-btn btn" onclick="displayHint3()">Common Fact</button>
+                <p id = hint-3 class ="hide-hint-3">hint 3</p>
+                <p></p>
             </div>
         </div>
         <div class="controls">
-            <button id=""start-btn" class="start-btn btn">Start</button>
+            <button id=""start-btn" class="start-btn btn" onclick="displayQuestion()">Start</button>
             <button id=""next-btn" class="next-btn btn">Next</button>
         </div>
     </div>
