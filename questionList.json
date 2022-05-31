@@ -1,0 +1,20 @@
+[
+    {
+        "species": "snail",
+        "funFact": "This animal can sleep up to three years!",
+        "hints": [
+            "This animal is invertibrae.",
+            "This animal is smaller than a loaf of bread.",
+            "This animal is slimy!"
+        ]
+    },
+    {
+        "species": "falcon",
+        "funFact": "This animal can reach up to 234mph!",
+        "hints": [
+            "This animal is a bird.",
+            "This animal is just bigger than a loaf of bread.",
+            "This animal is sometimes called a kestrel or a hobby."
+        ]
+    }
+]
