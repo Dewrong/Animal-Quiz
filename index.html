@@ -1,40 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="styles.css" rel="stylesheet" />
+    <script src="questionList.json"></script>
     <script defer src="script.js"></script>
     <title>Animal Quiz</title>
 </head>
+
 <body>
     <div class="container">
         <div id="game-title">Animal Quiz</div>
-        <div id="game-description">This game will give you an obscure animal fact, let's see if you can guess the animal!</div>
+    </div>
+    <br>
+    <div class="container">
+        <div id="game-description">This game will give you an obscure animal fact, let's see if you can guess the
+            animal!</div>
         <div id="question-container" class="hide-question">
             <div id="question">Question</div>
             <div id="answer-box" class="answer-grid">
-                <p><input type="text" value=""> 
-                    <button id="submit-button" class="submit-btn btn">Submit</button>
+                <p><input type="text" id="answer-input" value="">
+                    <button id="submit-button" class="submit-btn btn" onclick="submitButton()">Submit</button>
+                <div id="validator"></div>
                 </p>
             </div>
-            <div id="hint-container">
-                <button id = "hint-1 button" class="hint-btn btn" onclick="displayHint1()">Animal Kingdom</button>
-                <p id = hint-1 class="hide-hint-1">hint 1</p>
-                <p></p>
-                <button id = "hint-2 button" class="hint-2-btn btn" onclick="displayHint2()">Size</button>
-                <p id = hint-2 class="hide-hint-2">hint 2</p>
-                <p></p>
-                <button id = "hint-3 button" class="hint-3-btn btn" onclick="displayHint3()">Common Fact</button>
-                <p id = hint-3 class ="hide-hint-3">hint 3</p>
-                <p></p>
+            <div class="hint-tab">
+                <button id="hint-1 button" class="hint-btn btn" onclick="displayHint(0)">Animal Kingdom</button>
+                <button id="hint-2 button" class="hint-btn btn" onclick="displayHint(1)">Size</button>
+                <button id="hint-3 button" class="hint-btn btn" onclick="displayHint(2)">Common Fact</button>
+                <br>
+                <p id=hint-1 class="tabcontent">hint 1</p>
+                <p id=hint-2 class="tabcontent">hint 2</p>
+                <p id=hint-3 class="tabcontent">hint 3</p>
             </div>
         </div>
         <div class="controls">
-            <button id=""start-btn" class="start-btn btn" onclick="displayQuestion()">Start</button>
-            <button id=""next-btn" class="next-btn btn">Next</button>
+            <button id="start-btn" class="start-btn btn" onclick="displayQuestion()">Start</button>
+            <button id="next-btn" class="btn next-btn" onclick="nextButton()">Next</button>
         </div>
     </div>
+
 </body>
+
 </html>
