@@ -19,7 +19,6 @@ function displayQuestion() {
         data[questionNumber].hints[1];
       document.getElementById("hint-3").innerHTML =
         data[questionNumber].hints[2];
-      questionNumber++;
       console.log(specimenAnswer);
     });
   let question = document.getElementsByClassName("hide-question");
@@ -51,6 +50,7 @@ function displayHint(number) {
 }
 
 function nextButton() {
+  questionNumber++;
   for (let i = 1; i < 4; i++) {
     let hint = document.getElementsByClassName("tabcontent");
     for (let i = 0; i < hint.length; i++) {
@@ -68,8 +68,6 @@ function nextButton() {
           data[questionNumber].hints[1];
         document.getElementById("hint-3").innerHTML =
           data[questionNumber].hints[2];
-
-        questionNumber++;
         document.getElementById("validator").innerHTML = "";
         document.getElementById("submit-button").style.display = "inline";
         document.getElementById("answer-input").value = "";
