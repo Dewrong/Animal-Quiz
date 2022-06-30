@@ -62,6 +62,7 @@ function nextButton() {
     fetch('./questionList.json')
         .then(questions => questions.json())
         .then(data => {
+            specimenAnswer = data[questionNumber].species;
             document.getElementById("question").innerHTML = data[questionNumber].funFact;
             document.getElementById("hint-1").innerHTML = data[questionNumber].hints[0];
             document.getElementById("hint-2").innerHTML = data[questionNumber].hints[1];
