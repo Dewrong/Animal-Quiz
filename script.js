@@ -56,24 +56,23 @@ function nextButton() {
     for (let i = 0; i < hint.length; i++) {
       hint[i].style.display = "none";
     }
-    fetch('./questionList.json')
-        .then(questions => questions.json())
-        .then(data => {
-            specimenAnswer = data[questionNumber].species;
-            document.getElementById("question").innerHTML = data[questionNumber].funFact;
-            document.getElementById("hint-1").innerHTML = data[questionNumber].hints[0];
-            document.getElementById("hint-2").innerHTML = data[questionNumber].hints[1];
-            document.getElementById("hint-3").innerHTML = data[questionNumber].hints[2];
+    fetch("./questionList.json")
+      .then((questions) => questions.json())
+      .then((data) => {
+        specimenAnswer = data[questionNumber].species;
+        document.getElementById("question").innerHTML =
+          data[questionNumber].funFact;
+        document.getElementById("hint-1").innerHTML =
+          data[questionNumber].hints[0];
+        document.getElementById("hint-2").innerHTML =
+          data[questionNumber].hints[1];
+        document.getElementById("hint-3").innerHTML =
+          data[questionNumber].hints[2];
 
-            questionNumber++;
-            document.getElementById("validator").innerHTML = "";
-            document.getElementById("submit-button").style.display = "inline";
-            document.getElementById("answer-input").value = "";
-        });
-
-      questionNumber++;
-      document.getElementById("validator").innerHTML = "";
-      document.getElementById("submit-button").style.display = "inline";
-      document.getElementById("answer-input").value = "";
-    });
+        questionNumber++;
+        document.getElementById("validator").innerHTML = "";
+        document.getElementById("submit-button").style.display = "inline";
+        document.getElementById("answer-input").value = "";
+      });
+  }
 }
