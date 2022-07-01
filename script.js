@@ -2,6 +2,9 @@
 //intake answers should be toLowerCase() for === match
 let questionNumber = 0;
 let specimenAnswer = "default";
+let questionCount = 0;
+let correctAns = 0;
+let email = "jamesdburdine@gmail.com";
 
 let submission = document.getElementById("answer-input");
 submission.addEventListener("keypress", function(event){
@@ -18,6 +21,7 @@ function displayQuestion() {
   fetch("./questionList.json")
     .then((questions) => questions.json())
     .then((data) => {
+      questionCount = data.length;
       specimenAnswer = data[questionNumber].species;
       document.getElementById("question").innerHTML =
         data[questionNumber].funFact;
@@ -39,6 +43,8 @@ function submitButton() {
   if (specimenAnswer == userInput) {
     document.getElementById("submit-button").style.display = "none";
     document.getElementById("validator").innerHTML = "Correct!";
+    correctAns++;
+
   } else {
     document.getElementById("validator").innerHTML = "Incorrect!";
   }
@@ -58,6 +64,10 @@ function displayHint(number) {
 
 function nextButton() {
   questionNumber++;
+  if(questionNumber == (questionCount)){
+    curtainCall();
+  }
+  else{
   for (let i = 1; i < 4; i++) {
     let hint = document.getElementsByClassName("tabcontent");
     for (let i = 0; i < hint.length; i++) {
@@ -80,4 +90,13 @@ function nextButton() {
         document.getElementById("answer-input").value = "";
       });
   }
+}
+}
+
+function curtainCall(){
+  document.getElementById("question-container").style.display = "none";
+  document.getElementById("next-btn").style.display = "none";
+  document.getElementById("curtain-caller").innerHTML =
+    `Thank you for playing! You got ${correctAns} out of ${questionCount} correct!
+    If you have any feedback, please email me at: ${email}`;
 }

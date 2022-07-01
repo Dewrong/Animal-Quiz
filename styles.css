@@ -25,6 +25,7 @@ body {
 }
 
 .btn{
+    cursor:pointer;
     background-color: forestgreen;
     min-width: 15%;
     text-align: center;
@@ -44,6 +45,14 @@ body {
 }
 
 #question{
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+#validator{
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+#curtain-caller{
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
 }

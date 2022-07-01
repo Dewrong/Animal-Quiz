@@ -21,7 +21,7 @@
     "species": "reindeer",
     "funFact": "This animals' eyes change color in the winter!",
     "hints": [
-      "This animal is a mammal",
+      "This animal is a mammal.",
       "This animal is bigger than a TV.",
       "This animal is commonly depicted pulling sleighs."
     ]
@@ -30,8 +30,8 @@
     "species": "flamingo",
     "funFact": "This animal can only eat with it's head turned upside down!",
     "hints": [
-      "This animal is a bird",
-      "This animal is about the size of a chair",
+      "This animal is a bird.",
+      "This animal is about the size of a chair.",
       "This animal is colored a light-ish red, due to it's shrimp diet."
     ]
   }
