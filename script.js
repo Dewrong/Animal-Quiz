@@ -3,6 +3,14 @@
 let questionNumber = 0;
 let specimenAnswer = "default";
 
+let submission = document.getElementById("answer-input");
+submission.addEventListener("keypress", function(event){
+  if(event.key === "Enter"){
+    event.preventDefault();
+    submitButton();
+  }
+});
+
 function displayQuestion() {
   document.getElementById("next-btn").style.display = "inherit";
   document.getElementById("game-description").style.display = "none";
@@ -19,7 +27,6 @@ function displayQuestion() {
         data[questionNumber].hints[1];
       document.getElementById("hint-3").innerHTML =
         data[questionNumber].hints[2];
-      console.log(specimenAnswer);
     });
   let question = document.getElementsByClassName("hide-question");
   for (let i = 0; i < question.length; i++) {
