@@ -7,8 +7,8 @@ let correctAns = 0;
 let email = "jamesdburdine@gmail.com";
 
 let submission = document.getElementById("answer-input");
-submission.addEventListener("keypress", function(event){
-  if(event.key === "Enter"){
+submission.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
     event.preventDefault();
     submitButton();
   }
@@ -40,13 +40,22 @@ function displayQuestion() {
 
 function submitButton() {
   let userInput = document.getElementById("answer-input").value;
+  userInput = userInput.toLowerCase();
   if (specimenAnswer == userInput) {
     document.getElementById("submit-button").style.display = "none";
     document.getElementById("validator").innerHTML = "Correct!";
+    document.getElementById("next-btn").innerHTML = "Next";
     correctAns++;
-
   } else {
-    document.getElementById("validator").innerHTML = "Incorrect!";
+    let errorMessage = "";
+    let currentMessage = "";
+    let errors = ["Wrong!", "Incorrect!", "Not Right!"];
+    errorMessage = errors[Math.floor(Math.random() * 3)];
+    currentMessage = document.getElementById("validator").innerHTML;
+    while (currentMessage == errorMessage) {
+      errorMessage = errors[Math.floor(Math.random() * 3)];
+    }
+    document.getElementById("validator").innerHTML = errorMessage;
   }
 }
 
@@ -64,39 +73,39 @@ function displayHint(number) {
 
 function nextButton() {
   questionNumber++;
-  if(questionNumber == (questionCount)){
+  if (questionNumber == questionCount) {
     curtainCall();
-  }
-  else{
-  for (let i = 1; i < 4; i++) {
-    let hint = document.getElementsByClassName("tabcontent");
-    for (let i = 0; i < hint.length; i++) {
-      hint[i].style.display = "none";
+  } else {
+    for (let i = 1; i < 4; i++) {
+      let hint = document.getElementsByClassName("tabcontent");
+      for (let i = 0; i < hint.length; i++) {
+        hint[i].style.display = "none";
+      }
+      fetch("./questionList.json")
+        .then((questions) => questions.json())
+        .then((data) => {
+          specimenAnswer = data[questionNumber].species;
+          document.getElementById("question").innerHTML =
+            data[questionNumber].funFact;
+          document.getElementById("hint-1").innerHTML =
+            data[questionNumber].hints[0];
+          document.getElementById("hint-2").innerHTML =
+            data[questionNumber].hints[1];
+          document.getElementById("hint-3").innerHTML =
+            data[questionNumber].hints[2];
+          document.getElementById("validator").innerHTML = "";
+          document.getElementById("submit-button").style.display = "inline";
+          document.getElementById("answer-input").value = "";
+        });
     }
-    fetch("./questionList.json")
-      .then((questions) => questions.json())
-      .then((data) => {
-        specimenAnswer = data[questionNumber].species;
-        document.getElementById("question").innerHTML =
-          data[questionNumber].funFact;
-        document.getElementById("hint-1").innerHTML =
-          data[questionNumber].hints[0];
-        document.getElementById("hint-2").innerHTML =
-          data[questionNumber].hints[1];
-        document.getElementById("hint-3").innerHTML =
-          data[questionNumber].hints[2];
-        document.getElementById("validator").innerHTML = "";
-        document.getElementById("submit-button").style.display = "inline";
-        document.getElementById("answer-input").value = "";
-      });
   }
-}
 }
 
-function curtainCall(){
+function curtainCall() {
   document.getElementById("question-container").style.display = "none";
   document.getElementById("next-btn").style.display = "none";
-  document.getElementById("curtain-caller").innerHTML =
-    `Thank you for playing! You got ${correctAns} out of ${questionCount} correct!
+  document.getElementById(
+    "curtain-caller"
+  ).innerHTML = `Thank you for playing! You got ${correctAns} out of ${questionCount} correct!
     If you have any feedback, please email me at: ${email}`;
 }
