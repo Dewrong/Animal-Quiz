@@ -101,8 +101,7 @@ function cleanDisplay() {
 function curtainCall() {
   document.getElementById("game-screen").style.display = "none";
   document.getElementById("controls-container").style.display = "none";
-  document.getElementById(
-    "curtain-caller"
-  ).innerHTML = `Thank you for playing! You got ${correctAns} out of ${questionCount} correct!
-    If you have any feedback, please email me at: ${email}`;
+  document.getElementById("correct").innerHTML = correctAns;
+  document.getElementById("totalQ").innerHTML = questionCount;
+  document.getElementById("curtain-caller").style.display = "inline";
 }

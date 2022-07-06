@@ -18,6 +18,14 @@ body {
   flex-direction: column;
   flex-wrap: wrap;
 }
+a:link {
+  color: white;
+  text-decoration: underline;
+}
+
+span {
+  justify-content: left;
+}
 
 .container {
   width: 800px;
@@ -53,6 +61,7 @@ body {
   -webkit-text-stroke-color: black;
 }
 #curtain-caller {
+  display: none;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
 }
