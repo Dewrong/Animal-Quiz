@@ -95,8 +95,9 @@ function cleanDisplay() {
   document.getElementById("animalImage").style.display = "none";
   document.getElementById("answer-input").value = "";
   document.getElementById("submit-button").style.display = "inline";
-  document.getElementById("validator").style.display = "none";
+  document.getElementById("validator").innerHTML = "";
 }
+
 function curtainCall() {
   document.getElementById("game-screen").style.display = "none";
   document.getElementById("controls-container").style.display = "none";
