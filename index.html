@@ -16,18 +16,26 @@
         <div id="game-title">Animal Quiz</div>
     </div>
     <br>
-    <div class="container">
+    <div class="container" id="game-screen" >
         <div id="game-description">This game will give you an obscure animal fact, let's see if you can guess the
             animal! Using the hint buttons is highly recommended.</div>
         <div id="question-container" class="hide-question">
-            <div id="question">Question</div>
+            <div id="question">Question </div>
+            </div>
+            <div id="image" class="img container">
+            <img id = "animalImage"
+                 src=""
+                   alt="specimen"
+                    title="garfield-the-cat-holding-lasagna-FT-BLOG0617.jpg"
+              />
+                </div>
             <div id="answer-box" class="answer-grid">
                 <p><input type="text" id="answer-input" value="">
                     <button id="submit-button" class="submit-btn btn" onclick="submitButton()">Submit</button>
                 <div id="validator"></div>
                 </p>
             </div>
-            <div class="hint-tab">
+            <div class="hint-tab" id="hint-box">
                 <button id="hint-1 button" class="hint-btn btn" onclick="displayHint(0)">Animal Kingdom</button>
                 <button id="hint-2 button" class="hint-btn btn" onclick="displayHint(1)">Size</button>
                 <button id="hint-3 button" class="hint-btn btn" onclick="displayHint(2)">Common Fact</button>
@@ -36,13 +44,12 @@
                 <p id=hint-2 class="tabcontent">hint 2</p>
                 <p id=hint-3 class="tabcontent">hint 3</p>
             </div>
-        </div>
+    </div>
         <div id="controls-container" class="controls">
             <button id="start-btn" class="start-btn btn" onclick="displayQuestion()">Start</button>
             <button id="next-btn" class="btn next-btn" onclick="nextButton()">Skip</button>
         </div>
         <div id="curtain-caller"></div>
-    </div>
 
 </body>
 

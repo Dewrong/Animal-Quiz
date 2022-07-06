@@ -6,7 +6,8 @@
       "This animal is invertibrae.",
       "This animal is smaller than a loaf of bread.",
       "This animal is slimy and has a shell."
-    ]
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Snail.jpg"
   },
   {
     "species": "falcon",
@@ -15,7 +16,8 @@
       "This animal is a bird.",
       "This animal is just bigger than a loaf of bread.",
       "This animal is sometimes called a kestrel or a hobby."
-    ]
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/39/Brown-Falcon%2C-Vic%2C-3.1.2008.jpg"
   },
   {
     "species": "reindeer",
@@ -24,7 +26,8 @@
       "This animal is a mammal.",
       "This animal is bigger than a TV.",
       "This animal is commonly depicted pulling sleighs."
-    ]
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/96/Reinbukken_p%C3%A5_frisk_gr%C3%B8nt_beite._-_panoramio.jpg"
   },
   {
     "species": "flamingo",
@@ -33,6 +36,7 @@
       "This animal is a bird.",
       "This animal is about the size of a chair.",
       "This animal is colored a light-ish red, due to it's shrimp diet."
-    ]
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/38/Flamingos_Laguna_Colorada.jpg"
   }
 ]

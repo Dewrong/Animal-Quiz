@@ -15,6 +15,8 @@ submission.addEventListener("keypress", function (event) {
 });
 
 function displayQuestion() {
+  document.getElementById("answer-box").style.display = "inherit";
+  document.getElementById("hint-box").style.display = "inherit";
   document.getElementById("next-btn").style.display = "inherit";
   document.getElementById("game-description").style.display = "none";
   document.getElementById("start-btn").style.display = "none";
@@ -31,6 +33,7 @@ function displayQuestion() {
         data[questionNumber].hints[1];
       document.getElementById("hint-3").innerHTML =
         data[questionNumber].hints[2];
+      document.getElementById("animalImage").src = data[questionNumber].image;
     });
   let question = document.getElementsByClassName("hide-question");
   for (let i = 0; i < question.length; i++) {
@@ -46,6 +49,7 @@ function submitButton() {
     document.getElementById("validator").innerHTML = "Correct!";
     document.getElementById("next-btn").innerHTML = "Next";
     correctAns++;
+    document.getElementById("animalImage").style.display = "inline";
   } else {
     let errorMessage = "";
     let currentMessage = "";
@@ -73,37 +77,29 @@ function displayHint(number) {
 
 function nextButton() {
   questionNumber++;
+  cleanDisplay();
   if (questionNumber == questionCount) {
     curtainCall();
   } else {
-    for (let i = 1; i < 4; i++) {
-      let hint = document.getElementsByClassName("tabcontent");
-      for (let i = 0; i < hint.length; i++) {
-        hint[i].style.display = "none";
-      }
-      fetch("./questionList.json")
-        .then((questions) => questions.json())
-        .then((data) => {
-          specimenAnswer = data[questionNumber].species;
-          document.getElementById("question").innerHTML =
-            data[questionNumber].funFact;
-          document.getElementById("hint-1").innerHTML =
-            data[questionNumber].hints[0];
-          document.getElementById("hint-2").innerHTML =
-            data[questionNumber].hints[1];
-          document.getElementById("hint-3").innerHTML =
-            data[questionNumber].hints[2];
-          document.getElementById("validator").innerHTML = "";
-          document.getElementById("submit-button").style.display = "inline";
-          document.getElementById("answer-input").value = "";
-        });
-    }
+    displayQuestion();
   }
 }
 
+function cleanDisplay() {
+  for (let i = 1; i < 4; i++) {
+    let hint = document.getElementsByClassName("tabcontent");
+    for (let i = 0; i < hint.length; i++) {
+      hint[i].style.display = "none";
+    }
+  }
+  document.getElementById("animalImage").style.display = "none";
+  document.getElementById("answer-input").value = "";
+  document.getElementById("submit-button").style.display = "inline";
+  document.getElementById("validator").style.display = "none";
+}
 function curtainCall() {
-  document.getElementById("question-container").style.display = "none";
-  document.getElementById("next-btn").style.display = "none";
+  document.getElementById("game-screen").style.display = "none";
+  document.getElementById("controls-container").style.display = "none";
   document.getElementById(
     "curtain-caller"
   ).innerHTML = `Thank you for playing! You got ${correctAns} out of ${questionCount} correct!
